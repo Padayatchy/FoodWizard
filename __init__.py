@@ -27,8 +27,9 @@ class FoodWizardSkill(MycroftSkill):
         FoodWizard Skill Class.
         """    
         super(FoodWizardSkill, self).__init__(name="FoodWizardSkill")
-        self.app_id = self.settings['32ee587b']
-        self.app_key = self.settings['97d251eef16236c3846c00f6b4e5600d']
+        self.app_id = self.settings['app_id']
+        self.app_key = self.settings['app_key']
+
     
     def initialize(self):
     # Initialize..
