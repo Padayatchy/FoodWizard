@@ -60,9 +60,11 @@ class FoodWizardSkill(MycroftSkill):
             del cat[index]
         cat = ','.join([x for x in cat if x])
         data = "?q={0}&app_id={1}&app_key={2}&count=5".format(cat, self.app_id, self.app_key)
+        self.speak(data)
         response = requests.request(method,url+data)
         global globalObject
         globalObject = response.json()
+        self.speak(globalObject)
         resultCount = len(globalObject['hits'])
         resultSpeak = "I have found {0} recipes".format(resultCount)
         self.gui["recipeBlob"] = globalObject
