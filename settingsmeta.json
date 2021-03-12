@@ -13,13 +13,13 @@
                         "name": "app_id",
                         "type": "text",
                         "label": "APP ID",
-                        "value": "0ff6f190"
+                        "value": "32ee587b"
                     },
                     {
                         "name": "app_key",
                         "type": "text",
                         "label": "APP KEY",
-                        "value": "fbc1abd60a50e31d91cc41aeaaa0f23c"
+                        "value": "97d251eef16236c3846c00f6b4e5600d"
                     }
                 ]
             }
