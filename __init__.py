@@ -60,16 +60,17 @@ class FoodWizardSkill(MycroftSkill):
             del cat[index]
         cat = ','.join([x for x in cat if x])
         data = "?q={0}&app_id={1}&app_key={2}&count=5".format(cat, self.app_id, self.app_key)
-        self.speak(data)
         response = requests.request(method,url+data)
         global globalObject
         globalObject = response.json()
-        self.speak(globalObject)
         resultCount = len(globalObject['hits'])
         resultSpeak = "I have found {0} recipes".format(resultCount)
         self.gui["recipeBlob"] = globalObject
         self.gui.show_page("SearchRecipe.qml")
         self.speak(resultSpeak)
+        HowmanyRecipesTobeSpoken="How many Recipes you want to hear"
+        self.speak(HowmanyRecipesTobeSpoken)
+        
                 
     @intent_handler(IntentBuilder("ReadRecipeMethod").require("ReadRecipeKeyword").build())
     def handle_read_recipe_method_intent(self, message):
