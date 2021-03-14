@@ -69,7 +69,13 @@ class FoodWizardSkill(MycroftSkill):
         First_Recipe_name=globalObject['hits'][0]["recipe"]['label']
         First_Recipe_Question="Would you like to hear about {0}".format(First_Recipe_name)
         self.speak(First_Recipe_Question)
-        
+        likes_ice_cream = self.ask_yesno('NewRecipeQuestion')
+        if likes_ice_cream == 'yes':
+            self.speak("You said yes")
+        elif likes_ice_cream == 'no':
+            self.speak("You said no")
+        else:
+            self.speak("You said else")
                 
     @intent_handler(IntentBuilder("ReadRecipeMethod").require("ReadRecipeKeyword").build())
     def handle_read_recipe_method_intent(self, message):
