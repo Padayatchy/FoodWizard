@@ -65,11 +65,10 @@ class FoodWizardSkill(MycroftSkill):
         globalObject = response.json()
         resultCount = len(globalObject['hits'])
         resultSpeak = "I have found {0} recipes".format(resultCount)
-        self.gui["recipeBlob"] = globalObject
-        self.gui.show_page("SearchRecipe.qml")
         self.speak(resultSpeak)
-        HowmanyRecipesTobeSpoken="How many Recipes you want to hear"
-        self.speak(HowmanyRecipesTobeSpoken)
+        First_Recipe_name=globalObject['hits'][0]["recipe"]['label']
+        First_Recipe_Question="Would you like to hear about {0}".format(First_Recipe_name)
+        self.speak(First_Recipe_Question)
         
                 
     @intent_handler(IntentBuilder("ReadRecipeMethod").require("ReadRecipeKeyword").build())
